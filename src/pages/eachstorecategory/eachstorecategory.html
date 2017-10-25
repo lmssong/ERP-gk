@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" ></ion-icon>
+    </button>
+    <ion-title style="width:117%"><span style="color: white;">每间门店按商品品类销售</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <label class="item item-input" style="height:30px; width: 90%; margin-left: 5%;margin-top: 5px;  float: left">开始时间
+             &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;  <span ion-datepicker locale="en-US" (ionChanged)="eventStart($event)"  okText="确定" cancelText="取消"
+	 [value]="localDate"  full="true" clear class="ScheduleDate">
+{{startDate | date:'yyyy-MM-dd' }} 
+             </span>  
+               </label>
+  <label class="item item-input" style="height:30px; width: 90%;  margin-left: 5%;float: left">结束时间
+          &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;     <span ion-datepicker locale="en-US" (ionChanged)="eventEnd($event)"  okText="确定" cancelText="取消"
+	 [value]="localDate"  full="true" clear class="ScheduleDate">
+{{endDate | date:'yyyy-MM-dd' }} 
+             </span>  
+               </label>
+  <label class="item item-input" style="height:30px;font-size: 1.4rem; margin-left: 5%;width: 90%;line-height: 30px;float: left;margin-bottom: 5px;">门店名称
+         &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;<select [(ngModel)]="storeName"    style="height:30px;width: 60%; font-size: 1.4rem; margin-left: 1%">
+          <option *ngFor="let item of StoreList" [value]='item.Store_name'>{{item.Store_name}}</option>  
+            </select>
+       </label>
+  <button class="ion-buttons-search" (click)="searchs()" style="width:94%; margin-left:3%;margin-right:3%;">查询</button>
+
+ <table class="talbeList">
+        <thead>
+            <tr>
+                <th class="category">商品类别</th>
+                <th class="profit">
+                    <div style="width: 15px;height: 15px; float: left;background-color: red;line-height:15px;margin-top: 3px;"></div>
+                    <div class="profit_mo">毛利额</div>
+                    <div style="width: 15px;height: 15px; float: left;background-color: #11BEF7;line-height:15px;margin-top: 3px;"></div>
+                    <div class="profit_xiao">销售额</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let info of productList">
+                <td class="category">
+                    {{info.CategoryName}}
+                </td>
+                <td class="profit">
+                    <div class="profit_mo">￥{{info.PROFIT}}</div>
+                    <div class="profit_xiao">￥{{info.AMOUNT}}</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" ></ion-icon>
+    </button>
+    <ion-title  ><span  style="color: white;">门店销售额前十</span></ion-title>
+     
+  </ion-navbar>
+  
+</ion-header>
+
+<ion-content >
+  <label class="item item-input" style="height:30px; width: 90%; margin-top: 10px; margin-left: 5%; float: left">开始时间
+             &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;  <span ion-datepicker locale="en-US" (ionChanged)="eventStart($event)"  okText="确定" cancelText="取消"
+	 [value]="endDate"  full="true" clear class="ScheduleDate">
+{{startDate | date:'dd-MM-yyyy' }} 
+             </span>  
+               </label>  
+ <label class="item item-input" style="height:30px; width: 90%;  margin-left: 5%;float: left">结束时间
+          &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;     <span ion-datepicker locale="en-US" (ionChanged)="eventEnd($event)"  okText="确定" cancelText="取消"
+	 [value]="startDate"  full="true" clear class="ScheduleDate">
+{{endDate | date:'dd-MM-yyyy' }} 
+             </span>  
+               </label> 
+             <button   class="ion-buttons-search" (click)="searchs()" >查询</button>
+ <ion-item  style="width: 90%; ">
+   <div id="myChart" style="width: 98%; height:450px;" my-auto-fit-layout></div>
+ </ion-item>
+</ion-content>

@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" ></ion-icon>
+    </button>
+    <ion-title  style="width: 116%"><span  style="color: white;">门店日均客流量排行榜</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <label class="item item-input" style="height:30px; width: 90%; margin-left: 5%; float: left; margin-top: 5px;  ">开始时间
+             &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;  <span ion-datepicker locale="en-US" (ionChanged)="eventStart($event)"  okText="确定" cancelText="取消"
+	 [value]="localDate"  full="true" clear class="ScheduleDate">
+{{startDate | date:'yyyy-MM-dd' }} 
+             </span>  
+               </label>  
+ <label class="item item-input" style="height:30px; width: 90%;  margin-left: 5%;float: left">结束时间
+          &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;     <span ion-datepicker locale="en-US" (ionChanged)="eventEnd($event)"  okText="确定" cancelText="取消"
+	 [value]="localDate"  full="true" clear class="ScheduleDate">
+{{endDate | date:'yyyy-MM-dd' }} 
+             </span>  
+               </label> 
+                <button    class="ion-buttons-search" style="width: 94%; margin-left: 3%;margin-right: 3%;margin-bottom:10px;" (click)="searchs()">查询</button>
+                <label style="height:30px; width: 92%;  margin-left: 5%;">客流量=门店消费记录总和/天数</label>
+      <!--<div style="width: 90%; margin-left: 6%;margin-top: 13px; float: left">
+             <div  style="width: 50%; margin-left:4%; float:left;text-align: left;height: 15px; line-height: 15px; color: grey">门店名称</div>
+            <div  style="width: 45%; margin-right: 0;float: left; text-align: left;height: 15px; line-height: 15px;border-radius:4px;padding-left: 13%;">
+                <div style="width: 15px;float: left; height: 15px;background-color: #11BEF7"></div>
+                <div style="float: left"><span style="color:#11BEF7;margin: 0px 2px;">客流量</span></div>
+            </div>
+        </div><br/>
+        <div style="width: 94%; margin-left: 3%;margin-right: 3%; margin-top: 5px; float: left">
+            <ion-list  *ngFor="let info of productList" style="padding-top: 0px;padding-bottom: 0px;">
+                <ion-item class="item-content">
+                  
+                    <div style="width: 100%">
+                        <div style="width: 50%; margin-left: 0%;float:left;height: 25px;  color: grey">
+                             &nbsp;{{info.STORE_NAME}} 
+                        </div>
+                        
+                            <div style="width: 45%; height: 25px; margin-right:5%;float:left;   text-align: left;color: #11BEF7;padding-left: 20%;">{{info.EVERAGECOUNT}}</div>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </div>-->
+
+            <table class="talbeList">
+        <thead>
+            <tr>
+                <th class="category">&nbsp;门店名称</th>
+                <th class="profit">
+                    <div style="width: 15px;height: 15px; float: left;   background-color:#11BEF7"></div>
+                    <div style=" float: left;"><span style="margin: 0px 2px;">客流量</span></div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let info of productList">
+                <td class="category">
+                    &nbsp;{{info.STORE_NAME}}
+                </td>
+                <td class="profit">
+                    {{info.EVERAGECOUNT}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ion-content>

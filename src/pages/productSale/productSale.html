@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" ></ion-icon>
+    </button>
+    <ion-title  ><span  style="color: white;">门店销售额排行榜</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content >
+  <label class="item item-input" style="height:30px; width: 90%; margin-left: 5%; float: left">开始时间
+             &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;  <span ion-datepicker locale="en-US" (ionChanged)="eventStart($event)"  okText="确定" cancelText="取消"
+	 [value]="localDate"  full="true" clear class="ScheduleDate">
+{{startDate | date:'dd-MM-yyyy' }} 
+             </span>  
+               </label>  
+ <label class="item item-input" style="height:30px; width: 90%;  margin-left: 5%;float: left">结束时间
+          &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;     <span ion-datepicker locale="en-US" (ionChanged)="eventEnd($event)"  okText="确定" cancelText="取消"
+	 [value]="localDate"  full="true" clear class="ScheduleDate">
+{{endDate | date:'dd-MM-yyyy' }} 
+             </span>  
+               </label> 
+                <button class="ion-buttons-search" (click)="searchs()">查询</button>
+      <div style="width: 90%; margin-left: 5%;margin-top: 13px; float: left">
+            <div  style="width: 30%; margin-left:5.5%; float:left;text-align: left;height: 15px; line-height: 15px; color: grey">门店名称</div>
+            <div  style="width: 60.5%; margin-right: 0;float: left; text-align: right;height: 15px; line-height: 15px;border-radius:4px; text-align: right">
+                <div style=" float: right;"><span style="color:#11BEF7 ">销售额</span></div>
+                <div style="width: 15px;height: 15px; float: right;   background-color: #11BEF7"></div>
+            </div>
+        </div><br/>
+        <div style="width: 94%; margin-left: 3%; margin-top: 5px; float: left">
+            <ion-list  *ngFor="let info of productList" style="padding-top: 0px;padding-bottom: 0px;">
+                <ion-item >
+                    <div style="width: 100%">
+                        <div style="width: 52%; margin-left: -1%;float:left;height: 70px; line-height: 70px;color: grey">
+                              &nbsp;{{info.STORE_NAME}}
+                        </div>
+                        <div style="width: 35%;margin-left:13%;float:left;height: 70px; ">
+                            <div style="width: 100%; height: 30px;line-height: 30px; margin-top: 5px; text-align: right;color: #11BEF7;">￥{{info.AMOUNT}}</div>
+                      
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </div>
+</ion-content>

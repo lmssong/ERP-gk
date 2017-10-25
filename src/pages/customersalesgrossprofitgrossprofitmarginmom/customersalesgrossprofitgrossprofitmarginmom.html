@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" ></ion-icon>
+    </button>
+    <ion-title   style="width:114%;"> 分客户的销售额、毛利额、毛利率月度环比</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+     <label class="item item-input" style="height:30px;  margin-top: 10px;width: 50%; margin-left: 5%; float: left">查询日期
+             &nbsp;&nbsp;&nbsp;  <span ion-datepicker locale="en-US" (ionChanged)="eventStart($event)"  okText="确定" cancelText="取消"
+	 [value]="localDate"  full="true" clear class="ScheduleDate">
+{{startDate | date:'yyyy-MM-dd' }} 
+             </span>  
+     </label>
+     <br/>
+     <label class="item item-input" style="height:30px;  margin-top: 10px;width: 90%; margin-left: 5%; float: left;margin-bottom: 1px;">品类名称
+          &nbsp;&nbsp;&nbsp;<select [(ngModel)]="categoryName"    style="height:30px;width: 65%; font-size: 1.4rem; margin-left: 1%;">
+          <option *ngFor="let item of categoryList" [value]='item.NAME'>{{item.NAME}}</option>  
+     </select>
+     </label>
+    <br/>
+     <!--<br/>
+            <label class="item item-input" style="height:30px;  margin-top: 10px;width: 10%; margin-left: 5%; float: left">品类名称</label>
+            <select [(ngModel)]="categoryName"    style="height:30px;width: 75%; font-size: 1.4rem; margin-left: 0%">
+                    <option *ngFor="let item of CategoryList" [value]='item.NAME'>{{item.NAME}}</option>  
+            </select>-->
+
+                    <button  style=" width: 94%; height:30px; margin-left: 5%; background: #33cd5f;color: #FFFFFF; 
+  font-size: 1.5rem; font-weight:bold;" (click)="searchs()" >查询</button>
+   <label class="item item-input" style="height:30px; width: 92%;  margin-left: 5%;">本周期：{{startDate | date:'yyyy-MM'}}-01~{{startDate | date:'yyyy-MM-dd' }} </label>
+   <label class="item item-input" style="height:30px; width: 92%;  margin-left: 5%;">上周期：{{LaststartDate | date:'yyyy-MM'}}-01~{{LaststartDate | date:'yyyy-MM-dd' }}  </label>
+  <div style="width: 90%; margin-left: 5%;margin-top: 13px; float: left">
+            <div  style="width: 18%; float:left;text-align: center;height: 15px; line-height: 15px; color: grey">门店名称</div>
+            <div  style="width: 80%; margin-right: 0;float: left;height: 15px; line-height: 15px; ">
+                <div style=" float: right;"><span style="color:#11BEF7 ">销售额</span></div>
+                <div style="width: 15px;height: 15px; float: right;   background-color:#11BEF7"></div>
+                <div style=" float: right;"><span style="color:red ">毛利率</span></div>
+                <div style="width: 15px;height: 15px; float: right; background-color: red"></div>
+                <div style=" float: right;"><span style="color:green ">毛利额</span></div>
+                <div style="width: 15px;height: 15px; float: right; background-color: green"></div>
+
+            </div>
+        </div><br/>
+        <div style="width: 94%; margin-left: 3%; margin-top: 5px; float: left">
+            <ion-list *ngFor="let info of productList" style="padding-top: 0px;padding-bottom: 0px;">
+                <ion-item   class="item-content">
+                    <div style="width: 100%;margin-left: 0">
+                        <div style="width: 60%; height: 75px;margin-left:0; float: left; line-height: 75px; color: grey">{{info.STORE_NAME}}</div>
+                        <div style="width: 40%;height: 75px;margin-left: 0; float: left">
+                        <div style="width: 100%; height: 25px;line-height: 25px; margin-top: 2px; text-align: left; color: #11BEF7;">{{(info.PRICE_GROWTHRATE*100).toFixed(2)}}%</div>
+                        <div style="width: 100%; height: 25px;line-height: 25px; text-align: left; color: red;">{{(info.RATE_GROWTHRATE*100).toFixed(2)}}%</div>
+                        <div style="width: 100%; height: 25px;line-height: 25px; text-align: left; color: green;">{{(info.PROFIT_GROWTHRATE*100).toFixed(2)}}%</div>
+                        
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </div>
+</ion-content>

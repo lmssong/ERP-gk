@@ -1,0 +1,89 @@
+page-eachstorecategory {
+.item-content {
+    margin-bottom: -6px;
+    height: 60px;
+}
+.list-ios {
+    margin: 0;
+}
+.list-md {
+    margin: 0;
+}
+.item-block:first-child {
+    border-top: 0.55px solid #c8c7cc;
+}
+ion-list:last-child .item-block {
+    border-bottom: 0.55px solid #c8c7cc;
+}
+ion-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 90px 1px;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    pointer-events: none;
+}
+    .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+        color: #f4f4f4;
+        background-color: transparent;
+    }
+
+     .talbeList{
+        margin-top: 5%;
+        width: 94%;
+        margin-left: 3%;
+        text-align: left;
+        font-size: 15px;
+    }
+    .talbeList tr{
+        height: 30px;
+    }
+    .talbeList .category{
+        width: 63%;
+        color: grey;
+        padding:0 4px;
+    }
+
+    @media only screen and (max-width:375px){
+        .talbeList .category{
+            width: 60%;
+        }
+    }
+    @media only screen and (max-width:320px){
+        .talbeList .category{
+            width: 55%;
+        }
+    }
+    .talbeList tbody tr{
+        height: 50px;
+        font-size: 1.5rem;
+        font-weight:500;
+        border-top: 0.55px solid #c8c7cc;
+    }
+    .talbeList tbody tr:last-child{
+        border-bottom: 0.55px solid #c8c7cc;
+    }
+    .talbeList .profit_xiao{
+        color: #11BEF7;
+    }
+    // .talbeList thead tr{
+    //     line-height: 19px;
+    // }
+    
+
+    .talbeList thead tr .profit .profit_mo{
+        float: left;
+        margin:0 2px;
+    }
+    .talbeList thead tr .profit .profit_xiao{
+        float: left;
+        margin:0 2px;
+    }
+    .talbeList .profit .profit_mo{
+        color: red;
+        text-align: left;
+    }
+}

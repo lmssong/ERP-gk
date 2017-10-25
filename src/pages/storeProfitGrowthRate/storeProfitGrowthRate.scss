@@ -1,0 +1,67 @@
+page-storeProfitGrowthRate {
+// .item-content {
+//     padding-top:6px;
+//     padding-bottom: 6px;
+//     margin-top: -6px;
+//     margin-bottom: -6px;
+//     height: 55px;
+
+    .item-content {
+        margin-bottom: -6px;
+        height: 30px;
+    }
+    .list-ios {
+        margin: 0;
+    }
+    .list-md {
+        margin: 0;
+    }
+    .item-block:first-child {
+        border-top: 0.55px solid #c8c7cc;
+    }
+    ion-list:last-child .item-block {
+        border-bottom: 0.55px solid #c8c7cc;
+    }
+    .ion-title{
+    padding: 0 90px 1px;
+    }
+.talbeList{
+        margin-top: 10px;
+        width: 94%;
+        margin-left: 3%;
+        text-align: left;
+        font-size: 15px;
+    }
+    .talbeList tr{
+        height: 30px;
+    }
+    .talbeList .category{
+        width: 63%;
+        color: grey;
+    }
+        @media only screen and (max-width:375px){
+        .talbeList .category{
+            width: 60%;
+        }
+    }
+    @media only screen and (max-width:320px){
+        .talbeList .category{
+            width: 55%;
+        }
+    }
+     .talbeList thead tr{
+        line-height: 19px;
+    }
+    .talbeList tbody tr{
+        height: 50px;
+        font-size: 1.5rem;
+        font-weight:500;
+        border-top: 0.55px solid #c8c7cc;
+    }
+    .talbeList tbody tr:last-child{
+        border-bottom: 0.55px solid #c8c7cc;
+    }
+    .talbeList .profit{
+        color:#11BEF7;
+    }
+}

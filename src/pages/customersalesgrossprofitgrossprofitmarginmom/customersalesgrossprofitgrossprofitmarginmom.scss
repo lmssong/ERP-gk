@@ -1,0 +1,39 @@
+page-customersalesgrossprofitgrossprofitmarginmom {
+page-salesprofitrateMonth {
+// .item-content {
+//     padding-top:6px;
+//     padding-bottom: 6px;
+//     margin-top: -6px;
+//     margin-bottom: -6px;
+//     height: 55px;
+// }
+
+    .item-content {
+        margin-bottom:0px;
+        height: 80px;
+    }
+    .list-ios {
+        margin: 0px;
+    }
+    .list-md {
+        margin: 0px;
+    }
+    .item-block:first-child {
+        border-top: 0.59px solid #c8c7cc;
+    }
+    // .list-ios > .item-wrapper:last-child .item-block {
+    //     border-bottom: 0px solid #c8c7cc; 
+    // }
+    // ion-item:last-child .item-block {
+    //    border-bottom: 0.55px solid #c8c7cc;
+    // }
+    // ion-item{
+    //     border-bottom: 0.55px solid #c8c7cc; 
+    // }
+    ion-list:last-child .item-block {
+       border-bottom: 0.55px solid #c8c7cc;
+    }
+    .ion-title{
+    padding: 0 90px 1px;
+}
+}

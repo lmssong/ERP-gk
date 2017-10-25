@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" ></ion-icon>
+    </button>
+    <ion-title   style="width:114%;"> 分客户分品类毛利率年度同比</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+     <label class="item item-input" style="height:30px;  margin-top: 10px;width: 50%; margin-left: 5%; float: left">查询时间
+             &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;  <span ion-datepicker locale="en-US" (ionChanged)="eventStart($event)"  okText="确定" cancelText="取消"
+	 [value]="localDate"  full="true" clear class="ScheduleDate">
+{{startDate | date:'dd-MM-yyyy' }} 
+             </span>  
+     </label>
+     <label class="item item-input">
+          <input type="text" placeholder="客户名称" style="height:30px; margin-top: 5px; width: 50%; margin-left: 5%; margin-top: 5px; float: left" />     
+     </label>
+      <select [(ngModel)]="categoryName"    style="height:30px;width: 50%; font-size: 1.4rem; margin-left: 5%">
+          <option *ngFor="let item of categoryList" [value]='item.NAME'>{{item.NAME}}</option>  
+     </select>
+
+                    <button  style=" width: 94%; height:30px; margin-left: 3%; background: #33cd5f;color: #FFFFFF; 
+  font-size: 1.5rem; font-weight:bold;" (click)="searchs()" >查询</button>
+  <label class="item item-input" style="height:30px; width: 90%; margin-top: 5px;  margin-left: 5%;float: left">查询时间段{{startDate | date:'yyyy-MM'}}-1~{{startDate | date:'yyyy-MM-dd' }} </label>
+   <div style="width: 90%; margin-left: 5%;margin-top: 10px; float: left">
+            <div  style="width: 40%; margin-left:5.5%; float:left;text-align: left;height: 20px; line-height: 15px; color: grey">门店名称</div>
+            <div  style="width: 50.5%; margin-right: 0;float: left; text-align: right;height: 20px; line-height: 20px;border-radius:4px; text-align: right">
+
+
+                <div style=" float: right;"><span style="color:#11BEF7 ;height: 20px;">毛利率增长率</span></div>
+                <div style="width: 15px;height: 15px; float: right;   background-color: #11BEF7"></div>
+  
+            </div>
+        </div><br/>
+        <div style="width: 98%; margin-top: 5px; float: left">
+            <ion-list  *ngFor="let info of productList" style="padding-top: 0px;padding-bottom: 0px;">
+                <ion-item class="item-content">
+                    <div style="width: 100%">
+                         <div style="width: 58%; float:left;height: 1px; line-height: 18px;color: grey">
+                          &nbsp;{{info.STORE_NAME}}
+                        </div>
+                        <div style="width: 40%;margin-right:1%;float:left;height: 20px; ">
+                           <div style="width: 100%; height: 20px;line-height: 14px; margin-bottom: 5px; text-align: right;color:#11BEF7;"> &nbsp;&nbsp;&nbsp;￥{{info.PROFIT_GROWTHRATE}}</div>
+                             
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </div>
+</ion-content>

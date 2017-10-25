@@ -1,0 +1,101 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu" ></ion-icon>
+    </button>
+        <ion-title style="width: 107%;"><span style="color: white;">(团餐)分客户销售额</span></ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <label class="item item-input" style="height:30px; width: 90%; margin-left: 5%; margin-top: 5px; float: left">开始时间
+             &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;  <span ion-datepicker locale="en-US" (ionChanged)="eventStart($event)"  okText="确定" cancelText="取消"
+	 [value]="startDate"  full="true" clear class="ScheduleDate">
+{{startDate | date:'yyyy-MM-dd' }} 
+             </span>  
+               </label>
+    <label class="item item-input" style="height:30px; width: 90%;   margin-left: 5%;float: left">结束时间
+          &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;     <span ion-datepicker locale="en-US" (ionChanged)="eventEnd($event)"  okText="确定" cancelText="取消" 
+	 [value]="endDate"  full="false" clear class="ScheduleDate">
+{{endDate | date:'yyyy-MM-dd' }} 
+             </span>  
+               </label>
+
+
+    <!--<label class="item item-input" style="height:20px; width: 90%; margin-left: 5%; margin-top: 5px; float: left">开始时间
+             &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;  <span ion-datepicker locale="en-US" (ionChanged)="eventStart($event)"  okText="确定" cancelText="取消"
+	 [value]="localDate"  full="true" clear class="ScheduleDate">
+{{startDate | date:'yyyy-MM-dd' }} 
+             </span>  
+               </label>  
+ <label class="item item-input" style="height:20px; width: 90%;   margin-top: 10px; margin-left: 5%;float: left">结束时间
+          &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;     <span ion-datepicker locale="en-US" (ionChanged)="eventEnd($event)"  okText="确定" cancelText="取消"
+	 [value]="localDate"  full="true" clear class="ScheduleDate">
+{{endDate | date:'yyyy-MM-dd' }} 
+             </span>  
+               </label> -->
+    <br/>
+    <label class="item item-input" style="height:30px;font-size: 1.4rem; margin-left: 5%;line-height: 30px;width:75px;;float: left;margin-bottom:10px;margin-top:10px;">产品品类</label>
+    <select [(ngModel)]="customerName" style="height:30px;width: 55%; font-size: 1.4rem; margin-left: 3%;text-overflow: clip;margin-top:10px;">
+          <option *ngFor="let item of customerList" [value]='item.NAME'>{{item.NAME}}</option>  
+     </select>
+    <br/>
+    <button style=" width: 94%; height:30px; margin-left: 3%; background: #33cd5f;color: #FFFFFF; 
+  font-size: 1.5rem; font-weight:bold;" (click)="searchs()">查询</button>
+
+    <!--<div style="width: 90%; margin-left: 2%;margin-top: 13px; float: left">
+            <div  style="width: 30%; margin-left:5.5%; float:left;text-align: left;height: 20px; line-height: 20px; color: grey">产品品类</div>
+            <div  style="width: 60.5%; margin-right: 0;float: left; text-align: right;height: 20px; line-height: 20px;border-radius:4px; margin-left: -19%;">
+                <div style=" float: right;"><span style="color:#11BEF7;height: 20px; ">销售额</span></div>
+                <div style="width: 15px;height: 15px; float: right;   background-color: #11BEF7"></div>
+            </div>
+        </div>-->
+
+    <div style="width: 94%; margin-left: 3%;margin-top: 13px; float: left;font-size: 15px;font-weight:bold;">
+        <div class="storeTitle">客户名称</div>
+        <div class="storeProfit">
+            <div style="width: 15px;height: 15px; float: left;   background-color: #11BEF7"></div>
+            <div style=" float: left;"><span style="color:#11BEF7;margin:0px 2px;">销售额</span></div>
+            <div style="width: 15px;height: 15px; float: left; background-color: green"></div>
+            <div style=" float: left;"><span style="color:green;margin:0px 2px;">毛利额</span></div>
+            <div style="width: 15px;height: 15px; float: left; background-color: red"></div>
+            <div style=" float: left;"><span style="color:red;margin:0px 2px;">毛利率</span></div>
+        </div>
+    </div>
+
+    <br/>
+    <table class="talbeList">
+        <tbody>
+            <tr *ngFor="let info of productList" style="padding-top: 0px;padding-bottom: 0px;">
+                <td class="category">
+                    {{info.CUSTOMER_NAME}}
+                </td>
+                <td class="textRightDiv">
+                    <div class="textAmount">￥{{info.SALES_AMOUNT}}</div>
+                    <div class="textPROFIT">￥{{info.PROFIT}}</div>
+                    <div class="textPROFITRATE">{{(info.PROFITRATE*100).toFixed(2)}}%</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!--<div style="width: 94%; margin-left: 3%; margin-top: 5px; float: left">
+            <ion-list  *ngFor="let info of productList" style="padding-top: 0px;padding-bottom: 0px;">
+                <ion-item  class="item-content">
+                    <div style="width: 100%;line-height: 60px;font-size: 15px;">
+                       <div class="textName">
+                           <table>
+                               <tr>
+                                   <td item-width="width:50px;">{{info.CUSTOMER_NAME}}</td>
+                               </tr>
+                           </table>
+                        </div>
+                        <div class="textRightDiv">
+                           <div class="textAmount">￥{{info.SALES_AMOUNT}}</div>
+                           <div class="textPROFIT">￥{{info.PROFIT}}</div>
+                           <div class="textPROFITRATE">{{(info.PROFITRATE*100).toFixed(2)}}%</div>                           
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </div>-->
+</ion-content>

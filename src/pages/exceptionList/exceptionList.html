@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" ></ion-icon>
+    </button>
+    <ion-title style="width:117%"><span style="color: white;">盘点差异报损占比排行</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <label class="item item-input" style="height:30px; width: 90%; margin-left: 5%;margin-top: 5px;  float: left">开始时间
+             &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;  <span ion-datepicker locale="en-US" (ionChanged)="eventStart($event)"  okText="确定" cancelText="取消"
+	 [value]="localDate"  full="true" clear class="ScheduleDate">
+{{startDate | date:'yyyy-MM-dd' }} 
+             </span>  
+               </label>
+  <label class="item item-input" style="height:30px; width: 90%;  margin-left: 5%;float: left">结束时间
+          &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;     <span ion-datepicker locale="en-US" (ionChanged)="eventEnd($event)"  okText="确定" cancelText="取消"
+	 [value]="localDate"  full="true" clear class="ScheduleDate">
+{{endDate | date:'yyyy-MM-dd' }} 
+             </span>  
+               </label>
+  <button class="ion-buttons-search" (click)="searchs()" style="width:94%; margin-left:3%;margin-right:3%;">查询</button>
+  
+  <table class="talbeList">
+    <thead>
+      <tr>
+        <th class="category">&nbsp;商品类别</th>
+        <th class="profit">
+          <div style="width: 15px;height: 15px; float: left;   background-color:crimson"></div>
+          <div style=" float: left;"><span style="margin: 0px 2px;">毛利额</span></div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let info of productList">
+        <td class="category">
+          &nbsp;{{info.STORE_NAME}}
+        </td>
+        <td class="profit">
+          {{(info.PROFIT*100).toFixed(2)}}%
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</ion-content>

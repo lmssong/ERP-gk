@@ -1,0 +1,42 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title style="padding: 0 55px 1px;"><span style="color: white; text-align:left">广垦绿色销售分析</span></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list style="text-align:left">
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <img *ngIf="p.title=='商品毛利额前五十'" src="assets/img/1.png" />
+        <img *ngIf="p.title=='商品类别毛利额前十'" src="assets/img/1.png" />
+        <img *ngIf="p.title=='门店销售额前十'" src="assets/img/3.png" />
+        <img *ngIf="p.title=='门店毛利率排行榜'" src="assets/img/1.png" />
+        <img *ngIf="p.title=='门店每日销售额'" src="assets/img/2.png" />
+        <img *ngIf="p.title=='每间门店按商品品类销售'" src="assets/img/1.png" />
+        <img *ngIf="p.title=='门店日均客流量排行榜'" src="assets/img/1.png" />
+        <img *ngIf="p.title=='盘点差异及报损占比排行'" src="assets/img/1.png" />
+        <img *ngIf="p.title=='门店每日销售成本利润统计'" src="assets/img/2.png" />
+        <img *ngIf="p.title=='报损额月度增长率环比排行榜'" src="assets/img/1.png" />
+        <img *ngIf="p.title=='门店营业指数'" src="assets/img/1.png" />
+        <img *ngIf="p.title=='门店毛利额排行榜'" src="assets/img/1.png" />
+        <img *ngIf="p.title=='门店销售额排行榜'" src="assets/img/1.png" />
+        <img *ngIf="p.title=='毛利额月度增长率环比排行榜'" src="assets/img/1.png" />
+        <img *ngIf="p.title=='毛利额年度增长率同比排行榜'" src="assets/img/1.png" />
+        <img *ngIf="p.title=='销售额月度增长率环比排行榜'" src="assets/img/1.png" />
+        <img *ngIf="p.title=='销售额年度增长率同比排行榜'" src="assets/img/1.png" />                                  
+        <img *ngIf="p.title=='门店销售额、毛利额、毛利率月度环比'" src="assets/img/1.png" /> 
+        <img *ngIf="p.title=='门店销售额、毛利额、毛利率年度同比'" src="assets/img/1.png" />
+        <img *ngIf="p.title=='(团餐)分客户销售额'" src="assets/img/1.png" />     
+        <img *ngIf="p.title=='(团餐)分配类每日销售额、毛利额排行榜'" src="assets/img/1.png" />    
+        <img *ngIf="p.title=='(团餐)分客户、分品类销售额、毛利额、毛利率月度环比'" src="assets/img/1.png" /> 
+        <img *ngIf="p.title=='(团餐)分客户、分品类销售额、毛利额、毛利率年度同比'" src="assets/img/1.png" />     
+         {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" ></ion-icon>
+    </button>
+    <ion-title  ><span  style="color: white;">门店每日销售额</span></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+     <label class="item item-input" style="height:30px;font-size: 1.4rem; width: 90%; margin-left: 5%; margin-top: 5px; float: left">开始时间
+             &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;  <span ion-datepicker locale="en-US" (ionChanged)="eventStart($event)"  okText="确定" cancelText="取消"
+	 [value]="localDate"  full="true" clear class="ScheduleDate">
+{{startDate | date:'dd-MM-yyyy' }} 
+             </span>  
+               </label>  
+ <label class="item item-input" style="height:30px;font-size: 1.4rem; width: 90%;  margin-left: 5%;float: left">结束时间
+          &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;     <span ion-datepicker locale="en-US" (ionChanged)="eventEnd($event)"  okText="确定" cancelText="取消"
+	 [value]="localDate"  full="true" clear class="ScheduleDate">
+{{endDate | date:'dd-MM-yyyy' }} 
+             </span>  
+               </label> 
+       <select [(ngModel)]="storeName"    style="height:30px;width: 90%; font-size: 1.4rem; margin-left: 5%">
+          <option *ngFor="let item of StoreList" [value]='item.Store_name'>{{item.Store_name}}</option>  
+            </select>
+                <button    class="ion-buttons-search" (click)="searchs()">查询</button>
+              <div style="width: 90%; margin-left: 5%;margin-top: 13px; float: left">
+                <div style=" margin-right: 1%; float: right;"><span style="color:red ">—————利润</span></div>
+                <div style=" float: right;"><span style="color:#11BEF7 ">—————销售额</span></div>
+                 <div style=" float: right;"><span style="color:#33cd5f ">—————成本</span></div>
+              </div>
+ <ion-item  style="width: 90%; ">
+   <div id="myChart" style="width: 98%; height:400px;" my-auto-fit-layout></div>
+           
+
+ </ion-item>
+</ion-content>
