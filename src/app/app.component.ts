@@ -68,7 +68,7 @@ export class MyApp {
       { title: '门店销售额、毛利额、毛利率月度环比', component: salesprofitrateMonth },
       { title: '门店销售额、毛利额、毛利率年度同比', component: salesprofitrateYear },
       { title: '(团餐)分客户销售额', component: CustomersalesPage },
-      { title: '(团餐)分配类每日销售额、毛利额排行榜', component: Dailysalesreport },
+      { title: '(团餐)分类每日销售额、毛利额排行榜', component: Dailysalesreport },
       { title: '(团餐)分客户、分品类销售额、毛利额、毛利率月度环比', component: GpmsMonthPage },
       { title: '(团餐)分客户、分品类销售额、毛利额、毛利率年度同比', component: GpmsYearPage }
     ];
